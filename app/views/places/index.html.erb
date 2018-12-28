@@ -1,0 +1,23 @@
+
+<%= link_to "Create Place", new_place_path %>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Place Name</th>
+      <th>Approved By Manager</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @places.each do |place| %>
+      <tr>
+        <td><%= place.place_name %> </td>
+        <td><%= place.approved_by_manager %> </td>
+        <td><%= link_to 'Show', place %></td>
+        <td><%= link_to 'Edit', edit_place_path(place) if current_user.is_manager %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

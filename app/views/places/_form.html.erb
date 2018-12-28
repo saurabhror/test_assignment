@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-4">
+    <%= form_for(@place) do |f| %>
+      <% if @place.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@place.errors.count, "error") %> prohibited this place from being saved:</h2>
+
+          <ul>
+          <% @place.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :place_name %>
+        <%= f.text_field :place_name, class: "form-control" %>
+      </div>
+      <br>
+      <% if current_user.is_manager %>
+        <div class="field">
+          <%= f.label :approved_by_manager %>
+          <%= f.check_box :approved_by_manager %>
+        </div>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit current_user.is_manager ? 'Finalize Place' : 'Propose Place' %>
+      </div>
+    <% end %>
+  </div>
+</div>

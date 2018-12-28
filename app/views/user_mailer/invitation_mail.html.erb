@@ -1,0 +1,11 @@
+<h1>Welcome <%= @user.name %></h1>
+<p>
+  You have invited, suggest a place to go for lunch with team.
+  your email id is: <%= @user.email %>.<br>
+</p>
+<p>
+  <%= link_to reset_password_url(id: @user.reset_token_digest), reset_password_url(id: @user.reset_token_digest) %>
+</p>
+<br>
+<p>Thanks you and have a great day!</p>
+
