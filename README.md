@@ -14,7 +14,7 @@ Things you may want to cover:
 
 * Configuration
   i) Configure database /config/database.yml
-  ii) Set username and password
+  ii) Set username and password for PostgreSQL
 
 * Database creation and initialization
   i) rails db:create
