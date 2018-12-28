@@ -16,6 +16,9 @@ Things you may want to cover:
   i) Configure database /config/database.yml
   ii) Set username and password for PostgreSQL
 
+* Setup Application
+  i) bundle install
+
 * Database creation and initialization
   i) rails db:create
   ii) rails db:migration

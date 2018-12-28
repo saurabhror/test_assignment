@@ -7,7 +7,7 @@ class Place < ApplicationRecord
   def notify_manager
     team = self.user
     user = User.find_by(id: team.manager_id)
-    UserMailer.notify_manager_mail(user, team, self).deliver_now
+    UserMailer.notify_manager_mail(user, team, self).deliver_now if user
   end
 
   def notify_team
