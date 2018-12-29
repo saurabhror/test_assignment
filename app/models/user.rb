@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   def send_invitation_mail
     update_attribute(:reset_token_digest, generate_token)
-    UserMailer.invitation_mail(self).deliver_now
+    UserMailer.invitation_mail(self).deliver_now if !is_manager
   end
 
   def generate_token

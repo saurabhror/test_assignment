@@ -17,6 +17,10 @@
         <%= f.label :place_name %>
         <%= f.text_field :place_name, class: "form-control" %>
       </div>
+      <div class="field">
+        <%= f.label :address %>
+        <%= f.text_area :address, class: "form-control" %>
+      </div>
       <br>
       <% if current_user.is_manager %>
         <div class="field">
@@ -24,9 +28,8 @@
           <%= f.check_box :approved_by_manager %>
         </div>
       <% end %>
-
       <div class="actions">
-        <%= f.submit current_user.is_manager ? 'Finalize Place' : 'Propose Place', class: "btn btn-primary" %>
+        <%= f.submit current_user.is_manager && @place.persisted? ? 'Finalize Place' : 'Propose Place', class: "btn btn-primary" %>
       </div>
     <% end %>
   </div>

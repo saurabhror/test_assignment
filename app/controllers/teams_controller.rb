@@ -4,7 +4,7 @@ class TeamsController < ApplicationController
   before_action :restrict_user, only: [:index, :new, :create]
 
   def index
-    @users = User.all
+    @users = User.where(is_team_member: true)
   end
 
   def new
@@ -30,7 +30,7 @@ class TeamsController < ApplicationController
 
   def reset_password
     @user = User.find_by(reset_token_digest: params[:id])
-    if @user.present?
+    if @user.present? && params[:user][:password].present?
       if params[:user][:password] == params[:user][:password_confirmation]
         @user.password = params[:user][:password]
         if @user.save

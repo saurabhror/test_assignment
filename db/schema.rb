@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2018_12_28_072540) do
 
   create_table "places", force: :cascade do |t|
     t.string "place_name"
+    t.text "address"
     t.string "approved_by_manager", default: "f"
     t.bigint "user_id"
     t.datetime "created_at", null: false

@@ -11,9 +11,7 @@ class Place < ApplicationRecord
   end
 
   def notify_team
-    user_ids = Place.where(place_name: place_name).pluck(:user_id)
-
-    User.where(id: user_ids).each do |team|
+    User.where(manager_id: self.user.manager_id).each do |team|
       UserMailer.notify_team_mail(team, self).deliver_now
     end
 

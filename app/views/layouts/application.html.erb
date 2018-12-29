@@ -12,7 +12,7 @@
   <body>
     <div class="container">
       <%= render 'toastr_rails/flash' %>
-      <%= render partial: 'layouts/topnav' %>
+      <%= render partial: 'layouts/topnav' unless controller_name == "teams" && action_name == "edit_password" %>
       <br>
       <%= yield %>
     </div>
